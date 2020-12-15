@@ -9,6 +9,17 @@
 ## About application
 Simple catalog.
 
+## DB creation (psql). Not necessary
+create database catalog_trial;
+
+\c catalog_trial
+
+create table items(
+id bigint primary key,
+name varchar(255),
+description varchar(255)
+);
+
 ## I/O (API)
 Use browser console or tools like cURL.
 
