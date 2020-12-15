@@ -14,10 +14,10 @@ create database catalog_trial;
 
 \c catalog_trial
 
-create table items(
-id bigint primary key,
-name varchar(255),
-description varchar(255)
+create table items(<br>
+id bigint primary key,<br>
+name varchar(255),<br>
+description varchar(255)<br>
 );
 
 ## I/O (API)
