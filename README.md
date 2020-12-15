@@ -34,7 +34,7 @@ fetch(
   }
 ).then(result => result.json().then(console.log))
 #### cURL:
----todo
+curl -i -X POST -H "Content-Type: application/json" -d '{"name":"123","description":"333"}' http://localhost:8080/api/json/items
 
 ### GET
 #### Browser:
@@ -55,10 +55,10 @@ fetch(
   }
 ).then(result => result.json().then(console.log));
 #### cURL:
----todo
+curl -i -X PUT -H "Content-Type: application/json" -d "{\"description\":\"111\"}" http://localhost:8080/api/json/items/1
 
 ### DELETE
 #### Browser:
 fetch('/api/json/items/2', { method: 'DELETE' }).then(result => console.log(result))
 #### cURL:
----todo
+curl -X DELETE http://localhost:8080/api/json/items/2
