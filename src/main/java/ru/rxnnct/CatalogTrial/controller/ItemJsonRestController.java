@@ -38,7 +38,7 @@ public class ItemJsonRestController {
             @PathVariable("id") Item itemFromDb,
             @RequestBody Item item
     ) {
-        BeanUtils.copyProperties(item, itemFromDb, "id");
+        BeanUtils.copyProperties(item, itemFromDb, "id", "name");
         return itemRepo.save(itemFromDb);
     }
 
