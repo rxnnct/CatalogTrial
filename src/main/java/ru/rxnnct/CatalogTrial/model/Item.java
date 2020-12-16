@@ -3,6 +3,9 @@ package ru.rxnnct.CatalogTrial.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+/**
+ * Directory entry
+ */
 import javax.persistence.*;
 @Entity
 @Table(name = "items")

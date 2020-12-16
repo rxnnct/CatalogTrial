@@ -21,6 +21,7 @@ public class ItemService {
         this.itemRepo = itemRepo;
     }
 
+    //Contains a query that finds entities by a substring from request
     public List<Item> findByName(String name){
         Query query = entityManager.createQuery("from Item where Name like '%" + name + "%'");
         return (List<Item>) query.getResultList();

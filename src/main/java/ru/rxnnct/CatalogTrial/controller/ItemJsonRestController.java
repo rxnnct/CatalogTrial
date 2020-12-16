@@ -22,27 +22,32 @@ public class ItemJsonRestController {
         this.itemRepo = itemRepo;
     }
 
+    //Gets all catalog entities
     @GetMapping
     public List<Item> getAll() {
         return itemRepo.findAll();
     }
 
+    //Gets one directory entity
     @GetMapping("{id}")
     public Item getOne(@PathVariable("id") Item item) {
         return item;
     }
 
+    //Finds all entities by name by a substring.
     @GetMapping("/find-by-name")
     @ResponseBody
     public List<Item> findByName(@RequestParam(required = false) String name) {
         return context.getBean(ItemService.class).findByName(name);
     }
 
+    //Creates entity
     @PostMapping
     public Item create(@RequestBody Item item) {
         return itemRepo.save(item);
     }
 
+    //Updates entity
     @PutMapping("{id}")
     public Item update(
             @PathVariable("id") Item itemFromDb,
@@ -52,6 +57,7 @@ public class ItemJsonRestController {
         return itemRepo.save(itemFromDb);
     }
 
+    //Deletes entity
     @DeleteMapping("{id}")
     public void delete(@PathVariable("id") Item item) {
         itemRepo.delete(item);
