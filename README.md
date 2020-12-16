@@ -38,7 +38,7 @@ curl -i -X POST -H "Content-Type: application/json" -d '{"name":"{name}","descri
 
 ### GET
 #### Browser:
-fetch('/api/json/items').then(response => response.json().then(console.log))
+fetch('/api/json/items').then(response => response.json().then(console.log))<br>
 fetch('/api/json/items/{id}').then(response => response.json().then(console.log))
 #### cURL:
 curl localhost:8080/api/json/items
