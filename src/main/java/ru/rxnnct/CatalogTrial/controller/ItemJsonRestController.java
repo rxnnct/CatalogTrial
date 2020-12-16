@@ -28,6 +28,12 @@ public class ItemJsonRestController {
         return item;
     }
 
+    @GetMapping("/find-by-name") //http://localhost:8080/api/json/items/find-by-name?id=abc
+    @ResponseBody
+    public String findByName(@RequestParam(required = false) String id) {
+        return "ID: " + id;
+    }
+
     @PostMapping
     public Item create(@RequestBody Item item) {
         return itemRepo.save(item);
