@@ -2,9 +2,11 @@ package ru.rxnnct.CatalogTrial.controller;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.*;
 import ru.rxnnct.CatalogTrial.model.Item;
 import ru.rxnnct.CatalogTrial.repository.ItemRepo;
+import ru.rxnnct.CatalogTrial.service.ItemService;
 
 import java.util.List;
 
@@ -12,6 +14,8 @@ import java.util.List;
 @RequestMapping("api/json/items")
 public class ItemJsonRestController {
     private final ItemRepo itemRepo;
+    @Autowired
+    private ApplicationContext context;
 
     @Autowired
     public ItemJsonRestController(ItemRepo itemRepo) {
@@ -30,8 +34,8 @@ public class ItemJsonRestController {
 
     @GetMapping("/find-by-name") //http://localhost:8080/api/json/items/find-by-name?id=abc
     @ResponseBody
-    public String findByName(@RequestParam(required = false) String id) {
-        return "ID: " + id;
+    public Item findByName(@RequestParam(required = false) String name) {
+        return context.getBean(ItemService.class).findByName(name);
     }
 
     @PostMapping
