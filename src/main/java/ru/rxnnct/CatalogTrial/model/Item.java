@@ -20,9 +20,3 @@ public class Item {
     @Column(name = "description")
     private String description;
 }
-
-
-
-//todo:
-//1. find by name
-//        3. тесты

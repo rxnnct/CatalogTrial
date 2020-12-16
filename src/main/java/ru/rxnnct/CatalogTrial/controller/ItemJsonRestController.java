@@ -32,7 +32,7 @@ public class ItemJsonRestController {
         return item;
     }
 
-    @GetMapping("/find-by-name") //http://localhost:8080/api/json/items/find-by-name?name=First
+    @GetMapping("/find-by-name")
     @ResponseBody
     public List<Item> findByName(@RequestParam(required = false) String name) {
         return context.getBean(ItemService.class).findByName(name);
