@@ -30,35 +30,41 @@ fetch(
   { 
     method: 'POST', 
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name: 'First item', description: 'Hi'})
+    body: JSON.stringify({ name: '{name}', description: '{description}'})
   }
 ).then(result => result.json().then(console.log))
 #### cURL:
-curl -i -X POST -H "Content-Type: application/json" -d '{"name":"123","description":"333"}' http://localhost:8080/api/json/items
+curl -i -X POST -H "Content-Type: application/json" -d '{"name":"{name}","description":"{description}"}' http://localhost:8080/api/json/items
 
 ### GET
 #### Browser:
 fetch('/api/json/items').then(response => response.json().then(console.log))
-fetch('/api/json/items/2').then(response => response.json().then(console.log))
+fetch('/api/json/items/{id}').then(response => response.json().then(console.log))
 #### cURL:
 curl localhost:8080/api/json/items
-curl localhost:8080/api/json/items/2
+curl localhost:8080/api/json/items/{id}
+
+### Find by name
+#### Browser:
+fetch('/api/json/items/find-by-name?name={name}').then(response => response.json().then(console.log))
+#### cURL:
+curl localhost:8080/api/json/items/find-by-name?name={name}
 
 ### PUT
 #### Browser:
 fetch(
-  '/api/json/items/2', 
+  '/api/json/items/{id}', 
   { 
     method: 'PUT', 
     headers: { 'Content-Type': 'application/json' }, 
-    body: JSON.stringify({ description: 'sdfsdfsdf'})
+    body: JSON.stringify({ description: '{description}'})
   }
 ).then(result => result.json().then(console.log));
 #### cURL:
-curl -i -X PUT -H "Content-Type: application/json" -d "{\"description\":\"111\"}" http://localhost:8080/api/json/items/1
+curl -i -X PUT -H "Content-Type: application/json" -d '{"description":"{description}"}' http://localhost:8080/api/json/items/{id}
 
 ### DELETE
 #### Browser:
-fetch('/api/json/items/2', { method: 'DELETE' }).then(result => console.log(result))
+fetch('/api/json/items/{id}', { method: 'DELETE' }).then(result => console.log(result))
 #### cURL:
-curl -X DELETE http://localhost:8080/api/json/items/2
+curl -X DELETE http://localhost:8080/api/json/items/{id}
