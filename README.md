@@ -41,7 +41,7 @@ curl -i -X POST -H "Content-Type: application/json" -d '{"name":"{name}","descri
 fetch('/api/json/items').then(response => response.json().then(console.log))<br>
 fetch('/api/json/items/{id}').then(response => response.json().then(console.log))
 #### cURL:
-curl localhost:8080/api/json/items
+curl localhost:8080/api/json/items<br>
 curl localhost:8080/api/json/items/{id}
 
 ### Find by name
