@@ -1,10 +1,10 @@
 # CatalogTrial
 
 ## Implementation details
-* Apache Maven
-* Spring Boot
-* Lombok
+* Spring Framework
 * PostgreSQL
+* Apache Maven
+* Lombok
 
 ## About application
 Simple catalog.<br> 
