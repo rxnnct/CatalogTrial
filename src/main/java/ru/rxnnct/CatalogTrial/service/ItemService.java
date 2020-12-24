@@ -13,12 +13,12 @@ import java.util.List;
 public class ItemService {
     private final ItemRepo itemRepo;
 
-    @Autowired
-    EntityManager entityManager;
+    private final EntityManager entityManager;
 
     @Autowired
-    public ItemService(ItemRepo itemRepo) {
+    public ItemService(ItemRepo itemRepo, EntityManager entityManager) {
         this.itemRepo = itemRepo;
+        this.entityManager = entityManager;
     }
 
     //Contains a query that finds entities by a substring from request

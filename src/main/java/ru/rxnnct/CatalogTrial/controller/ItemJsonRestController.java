@@ -14,12 +14,12 @@ import java.util.List;
 @RequestMapping("api/json/items")
 public class ItemJsonRestController {
     private final ItemRepo itemRepo;
-    @Autowired
-    private ApplicationContext context;
+    private final ApplicationContext context;
 
     @Autowired
-    public ItemJsonRestController(ItemRepo itemRepo) {
+    public ItemJsonRestController(ItemRepo itemRepo, ApplicationContext context) {
         this.itemRepo = itemRepo;
+        this.context = context;
     }
 
     //Gets all catalog entities
